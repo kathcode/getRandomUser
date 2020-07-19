@@ -4,12 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 
 // Models
-import {
-  IUserResponse,
-  IUserData,
-  IUserName,
-  IUserPicture,
-} from '../../models/user';
+import { IUserResponse, IUserData } from '../../models/user';
 
 @Component({
   selector: 'app-user',
@@ -34,7 +29,6 @@ export class UserComponent implements OnInit {
     this.userService.getRandomName().subscribe((response: IUserResponse) => {
       const { results } = response; // Destructuring assignment (Object)
       const [data] = results; // Destructuring assignment (Array)
-
       const { name, email, phone, picture }: IUserData = data;
 
       this.name = `${name.first} ${name.last}`; // Using template literals
