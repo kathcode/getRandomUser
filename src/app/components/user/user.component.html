@@ -1,0 +1,30 @@
+<div class="container text-center p-3">
+  <h1>Random user with Angular</h1>
+</div>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-md-6 margin-auto">
+      <div class="card">
+        <div class="loading text-center" *ngIf="loading">
+          <img
+            src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/afb8cb36197347.5713616457ee5.gif"
+            alt="loading"
+            class="card-img-top"
+          />
+          <h2 class="card-title">Loading...</h2>
+        </div>
+        <img [src]="picture" class="card-img-top" />
+        <div class="card-body">
+          <h2 class="card-title">{{ name }}</h2>
+          <div class="card-text">
+            <p>Phone: {{ phone }}</p>
+            <p>Email: {{ email }}</p>
+          </div>
+        </div>
+        <button class="btn btn-primary" (click)="getRandomUser()">
+          Get new random user
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
