@@ -32,20 +32,10 @@ export class UserComponent implements OnInit {
   getRandomUser(): void {
     this.loading = true;
     this.userService.getRandomName().subscribe((response: IUserResponse) => {
-      const { results } = response;
-      const [data] = results;
+      const { results } = response; // Destructuring assignment (Object)
+      const [data] = results; // Destructuring assignment (Array)
 
-      const {
-        name,
-        email,
-        phone,
-        picture,
-      }: {
-        name: IUserName;
-        email: string;
-        phone: string;
-        picture: IUserPicture;
-      } = data;
+      const { name, email, phone, picture }: IUserData = data;
 
       this.name = `${name.first} ${name.last}`; // Using template literals
       this.email = email;
